@@ -1,15 +1,37 @@
 <!DOCTYPE html>
 <html>
+
  <head>
   <meta charset="UTF-8">
-  <title>title</title>
-  <script src="//ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js" type="text/javascript"></script>
-
+  <title>SearchVideos!</title>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js" type="text/javascript"></script>
+  <script src="js/script.js"></script>
+  <link rel="stylesheet" type="text/css" href="css/style.css">
  </head>
+
  <body>
+  <div id="container">
 
+    <header>
+      <h1>Search<span>Videos!</span></h1>
+      <p>Search Youtube Videos!</p>
+    </header>
 
+    <section>
+      <form id='search-form' name='search-form' onsubmit='return search()'>
+        <div class='fieldContainer'>
+          <input type='search' id='query' class='searchField' placeholder="Search Youtube...">
+          <input type='submit' name='search-btn' id='search-btn' value=''>
+        </div>
+      </form>
+      <ul id="results"></ul>
+      <div id='buttons'></div>
+    </section>
 
+    <footer>
+      <p>Copyright &copy; 2015, All Rights Reserved</p>
+    </footer>
 
+  </div>
  </body>
 </html>
