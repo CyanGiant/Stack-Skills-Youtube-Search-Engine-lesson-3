@@ -12,13 +12,13 @@ body {
 }
 
 a{
-  color:#333;
+  color:#2f3659;
   text-decoration: none;
 }
 
 #container{
   width: 740px;
-  background: #fff;
+  background: #80adbf;
   margin: auto;
 }
 
@@ -28,7 +28,7 @@ a{
 
 header{
   padding: 30px 20px;
-  background: #f4f4f4;
+  background: #d9d0bf;
 }
 
 header h1{
@@ -46,7 +46,7 @@ section{
 
 footer{
   padding: 20px;
-  background: #f4f4f4;
+  background: #d9d0bf;
   text-align: center;
 }
 
@@ -69,17 +69,17 @@ footer{
   width: 45%;
   padding: 11px 7px;
   padding-right: 43px;
-  background: #fff;
-  color: #ccc;
+  background: #d9d0bf;
+  color: #515d73;
   border:1px solid #c8c8c8;
   font-size: 1.6em;
-  border-bottom-color: #d2e2e7;
+  border-bottom-color: #515d73;
   -moz-border-radius: 1px;
   -webkit-border-radius: 1px;
   border-radius: 1px;
-  -mox-box-shadow: inset 0 1px 2px rgba(0,0,0,0.1), 0 0 0 6px #f0f0f0;
-  -webkit-box-shadow: inset 0 1px 2px rgba(0,0,0,0.1), 0 0 0 6px #f0f0f0;
-  box-shadow: inset 0 1px 2px rgba(0,0,0,0.1), 0 0 0 6px #f0f0f0;
+  -mox-box-shadow: inset 0 1px 2px rgba(0,0,0,0.1), 0 0 0 6px #515d73;
+  -webkit-box-shadow: inset 0 1px 2px rgba(0,0,0,0.1), 0 0 0 6px #515d73;
+  box-shadow: inset 0 1px 2px rgba(0,0,0,0.1), 0 0 0 6px #515d73;
 
 }
 
@@ -105,7 +105,7 @@ footer{
 
 #results li{
   padding: 10px 0;
-  border-bottom: 1px #ccc dotted;
+  border-bottom: 1px #f2e9d8 dotted;
   list-style: none;
   overflow: auto;
 }
@@ -118,7 +118,7 @@ footer{
 .list-left img{
   width: 100%;
   padding: 3px;
-  border: solid #ccc 1px;
+  border: solid #d9d0bf 1px;
 }
 .list-right {
   float: right;
@@ -126,4 +126,18 @@ footer{
 }
 .cTitle{
   color: #dd2826;
+}
+
+.button-container{
+  margin-top: 25px
+}
+
+.paging-button{
+  background: #d9d0bf;
+  padding: 8px 13px;
+  border: #2f3659 1px solid;
+  border-radius: 5px;
+  color: #333;
+  margin: 10px;
+  cursor: pointer;
 }
