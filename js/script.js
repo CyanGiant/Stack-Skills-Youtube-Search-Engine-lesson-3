@@ -70,6 +70,91 @@ function search(){
     );
 }
 
+// Next page function
+function nextPage(){
+  var token = $('#next-button').data('token');
+  var q = $('#next-button').data('query');
+  // clear results
+  $('#results').html('');
+  $('#buttons').html('');
+  //get form inputs
+  q = $('#query').val();
+
+  //run get request on api
+  $.get(
+    "https://www.googleapis.com/youtube/v3/search",{
+      part: 'snippet, id',
+      q: q,
+      pageToken: token,
+      type: 'video',
+      key: 'AIzaSyDtiYiv_JGnMFkrzVj5YodXYgEICg3KLZo'},
+      function(data){
+        var nextPageToken = data.nextPageToken;
+        var prevPageToken = data.prevPageToken;
+
+          //log data
+        console.log(data);
+
+          //get output
+        $.each(data.items, function(i, item){
+          var output = getOutput(item);
+
+          // Display Results
+          $('#results').append(output);
+
+        });
+
+        var buttons = getButtons(prevPageToken, nextPageToken);
+
+        // display buttons
+        $('#buttons').append(buttons);
+      }
+
+    );
+}
+
+// Previous page function
+function prevPage(){
+  var token = $('#prev-button').data('token');
+  var q = $('#prev-button').data('query');
+  // clear results
+  $('#results').html('');
+  $('#buttons').html('');
+  //get form inputs
+  q = $('#query').val();
+
+  //run get request on api
+  $.get(
+    "https://www.googleapis.com/youtube/v3/search",{
+      part: 'snippet, id',
+      q: q,
+      pageToken: token,
+      type: 'video',
+      key: 'AIzaSyDtiYiv_JGnMFkrzVj5YodXYgEICg3KLZo'},
+      function(data){
+        var nextPageToken = data.nextPageToken;
+        var prevPageToken = data.prevPageToken;
+
+          //log data
+        console.log(data);
+
+          //get output
+        $.each(data.items, function(i, item){
+          var output = getOutput(item);
+
+          // Display Results
+          $('#results').append(output);
+
+        });
+
+        var buttons = getButtons(prevPageToken, nextPageToken);
+
+        // display buttons
+        $('#buttons').append(buttons);
+      }
+
+    );
+}
 
 //build output
 function getOutput(item) {
@@ -86,7 +171,7 @@ function getOutput(item) {
   '<img src="'+thumb+'">' +
   '</div>' +
   '<div class="list-right">' +
-  '<h3>'+title+'</h3>' +
+  '<h3><a class="fancybox fancybox.iframe" href="http://www.youtube.com/embed/'+videoId+'">'+title+'</h3>' +
   '<small>By <span class="cTitle">'+channelTitle+'</span> on '+videoDate+'</small>' +
   '<p>'+description+'</p>' +
   '</div>' +
@@ -105,7 +190,7 @@ function getButtons(prevPageToken, nextPageToken) {
 
   } else {
     var btnoutput = '<div class="button-container">'+
-    'button id="next-button" class="paging-button" data-token="'+prevPageToken+'"data-query="'+q+'"'+'onclick="prevPage();">Prev Page</button>' +
+    '<button id="prev-button" class="paging-button" data-token="'+prevPageToken+'"data-query="'+q+'"'+'onclick="prevPage();">Prev Page</button>' +
      '<button id="next-button" class="paging-button" data-token="'+nextPageToken+'"data-query="'+q+'"'+'onclick="nextPage();">Next Page</button></div>';
   }
   return btnoutput;
